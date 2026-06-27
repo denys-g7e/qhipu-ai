@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
@@ -442,6 +443,29 @@ class _ChatPageState extends ConsumerState<ChatPage> with SingleTickerProviderSt
                     if (value.trim().isNotEmpty) {
                       _textController.clear();
                       _enviarTexto(value);
+                    }
+                  },
+                ),
+              ),
+            ),
+            const SizedBox(width: 4),
+            SizedBox(
+              width: 44,
+              height: 44,
+              child: IconButton(
+                onPressed: _escuchando ? _detenerVoz : _iniciarVoz,
+                icon: Icon(
+                  _escuchando ? Icons.stop : Icons.mic,
+                  color: _escuchando ? QhipuColors.dangerRed : QhipuColors.primaryGreen,
+                  size: 22,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }
 
 class _ScannerQRSheet extends StatefulWidget {
@@ -521,30 +545,6 @@ class _ScannerQRSheetState extends State<_ScannerQRSheet> {
             ),
           ),
         ],
-      ),
-    );
-  }
-}
-
-                  },
-                ),
-              ),
-            ),
-            const SizedBox(width: 4),
-            SizedBox(
-              width: 44,
-              height: 44,
-              child: IconButton(
-                onPressed: _escuchando ? _detenerVoz : _iniciarVoz,
-                icon: Icon(
-                  _escuchando ? Icons.stop : Icons.mic,
-                  color: _escuchando ? QhipuColors.dangerRed : QhipuColors.primaryGreen,
-                  size: 22,
-                ),
-              ),
-            ),
-          ],
-        ),
       ),
     );
   }
