@@ -10,7 +10,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
-      # Configurar Java correctamente para evitar el exit code 1 en Android
       - uses: actions/setup-java@v3
         with:
           distribution: 'zulu'
@@ -18,7 +17,7 @@ jobs:
           
       - uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.16.9'
+          flutter-version: '3.22.2' # Versión estable moderna
           
       - run: flutter pub get
       - run: flutter build apk --split-per-abi --release --dart-define=GROQ_API_KEY=${{ secrets.GROQ_API_KEY }}
