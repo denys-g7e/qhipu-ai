@@ -528,9 +528,9 @@ class _ScannerQRSheetState extends State<_ScannerQRSheet> {
                 child: MobileScanner(
                   controller: _controller,
                   onDetect: (capture) {
-                    final barcode = capture.barcodes.firstOrNull;
-                    if (barcode != null && barcode.rawValue != null) {
-                      widget.onScanned(barcode.rawValue!);
+                    final barcodes = capture.barcodes;
+                    if (barcodes.isNotEmpty && barcodes.first.rawValue != null) {
+                      widget.onScanned(barcodes.first.rawValue!);
                     }
                   },
                 ),
