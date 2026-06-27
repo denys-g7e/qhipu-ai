@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class GroqService {
-  static const String _apiKey = 'gsk_INGRESA_TU_KEY_AQUI';
+  static const String _apiKey = String.fromEnvironment('GROQ_API_KEY', defaultValue: 'gsk_DEMO_KEY_REEMPLAZAR');
   static const String _baseUrl = 'https://api.groq.com/openai/v1/chat/completions';
 
   static const String systemPrompt = """
