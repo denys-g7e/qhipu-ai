@@ -1,0 +1,4 @@
+-keep class com.qhipu.** { *; }
+-keepclassmembers class * extends io.flutter.embedding.engine.FlutterEngine { *; }
+-dontwarn io.flutter.**
+-dontwarn com.google.firebase.**
